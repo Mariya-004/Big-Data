@@ -2,3 +2,7 @@
 1990 45
 1991 38
 1991 40
+
+
+hadoop jar MaxTemperaturePerYear.jar MaxTemperaturePerYear /user/hadoop/input /user/hadoop/output
+
