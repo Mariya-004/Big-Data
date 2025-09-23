@@ -1,24 +1,21 @@
 import java.io.IOException;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
-
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class MaxTemperature {
 
     // Mapper Class
-    public static class MaxTemperatureMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+    public static class MaxTemperatureMapper extends Mapper<LongWritable, Text, Text, FloatWritable> {
         private Text year = new Text();
-        private IntWritable temperature = new IntWritable();
+        private FloatWritable temperature = new FloatWritable();
 
         @Override
         protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
@@ -27,7 +24,7 @@ public class MaxTemperature {
             if (parts.length == 2) {
                 year.set(parts[0]);
                 try {
-                    temperature.set(Integer.parseInt(parts[1]));
+                    temperature.set(Float.parseFloat(parts[1]));
                     context.write(year, temperature);
                 } catch (NumberFormatException e) {
                     // Skip invalid temperature values
@@ -37,14 +34,13 @@ public class MaxTemperature {
     }
 
     // Reducer Class
-    public static class MaxTemperatureReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
-        private IntWritable maxTemperature = new IntWritable();
+    public static class MaxTemperatureReducer extends Reducer<Text, FloatWritable, Text, FloatWritable> {
+        private FloatWritable maxTemperature = new FloatWritable();
 
         @Override
-        protected void reduce(Text key, Iterable<IntWritable> values, Context context)
-                throws IOException, InterruptedException {
-            int maxTemp = Integer.MIN_VALUE;
-            for (IntWritable val : values) {
+        protected void reduce(Text key, Iterable<FloatWritable> values, Context context) throws IOException, InterruptedException {
+            float maxTemp = Float.MIN_VALUE;
+            for (FloatWritable val : values) {
                 maxTemp = Math.max(maxTemp, val.get());
             }
             maxTemperature.set(maxTemp);
@@ -58,16 +54,13 @@ public class MaxTemperature {
             System.err.println("Usage: MaxTemperature <input path> <output path>");
             System.exit(-1);
         }
-
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "Max Temperature By Year");
         job.setJarByClass(MaxTemperature.class);
-
         job.setMapperClass(MaxTemperatureMapper.class);
         job.setReducerClass(MaxTemperatureReducer.class);
-
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(FloatWritable.class);
 
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
