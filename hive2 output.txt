@@ -1,0 +1,224 @@
+No rows selected (0.056 seconds)
+0: jdbc:hive2://localhost:10000> CREATE TABLE customer_data (
+. . . . . . . . . . . . . . . .>     customer_id INT,
+. . . . . . . . . . . . . . . .>     customer_name STRING,
+. . . . . . . . . . . . . . . .>     city STRING,
+. . . . . . . . . . . . . . . .>     purchase_amount FLOAT
+. . . . . . . . . . . . . . . .> )
+. . . . . . . . . . . . . . . .> ROW FORMAT DELIMITED
+. . . . . . . . . . . . . . . .> FIELDS TERMINATED BY ','
+. . . . . . . . . . . . . . . .> STORED AS TEXTFILE;
+INFO  : Compiling command(queryId=hadoop_20251028153256_e6905c1b-acf9-4ad8-b7f1-65f9baa15166): CREATE TABLE customer_data (
+customer_id INT,
+customer_name STRING,
+city STRING,
+purchase_amount FLOAT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hadoop_20251028153256_e6905c1b-acf9-4ad8-b7f1-65f9baa15166); Time taken: 0.003 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hadoop_20251028153256_e6905c1b-acf9-4ad8-b7f1-65f9baa15166): CREATE TABLE customer_data (
+customer_id INT,
+customer_name STRING,
+city STRING,
+purchase_amount FLOAT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hadoop_20251028153256_e6905c1b-acf9-4ad8-b7f1-65f9baa15166); Time taken: 0.027 seconds
+No rows affected (0.036 seconds)
+0: jdbc:hive2://localhost:10000> INSERT INTO TABLE customer_data VALUES
+. . . . . . . . . . . . . . . .> (1, 'Alice', 'Delhi', 1200.50),
+. . . . . . . . . . . . . . . .> (2, 'Bob', 'Mumbai', 850.75),
+. . . . . . . . . . . . . . . .> (3, 'Charlie', 'Bangalore', 950.00),
+. . . . . . . . . . . . . . . .> (4, 'David', 'Delhi', 1100.25),
+. . . . . . . . . . . . . . . .> (5, 'Eve', 'Chennai', 600.00),
+. . . . . . . . . . . . . . . .> (6, 'Frank', 'Mumbai', 750.50),
+. . . . . . . . . . . . . . . .> (7, 'Grace', 'Bangalore', 1300.00),
+. . . . . . . . . . . . . . . .> (8, 'Hannah', 'Delhi', 980.00),
+. . . . . . . . . . . . . . . .> (9, 'Ivy', 'Chennai', 1250.00),
+. . . . . . . . . . . . . . . .> (10, 'Jack', 'Mumbai', 700.00);
+INFO  : Compiling command(queryId=hadoop_20251028153303_b08e00c8-1f8b-409b-a188-a5fba7ad05ce): INSERT INTO TABLE customer_data VALUES
+(1, 'Alice', 'Delhi', 1200.50),
+(2, 'Bob', 'Mumbai', 850.75),
+(3, 'Charlie', 'Bangalore', 950.00),
+(4, 'David', 'Delhi', 1100.25),
+(5, 'Eve', 'Chennai', 600.00),
+(6, 'Frank', 'Mumbai', 750.50),
+(7, 'Grace', 'Bangalore', 1300.00),
+(8, 'Hannah', 'Delhi', 980.00),
+(9, 'Ivy', 'Chennai', 1250.00),
+(10, 'Jack', 'Mumbai', 700.00)
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:[FieldSchema(name:_col0, type:int, comment:null), FieldSchema(name:_col1, type:string, comment:null), FieldSchema(name:_col2, type:string, comment:null), FieldSchema(name:_col3, type:float, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hadoop_20251028153303_b08e00c8-1f8b-409b-a188-a5fba7ad05ce); Time taken: 0.089 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hadoop_20251028153303_b08e00c8-1f8b-409b-a188-a5fba7ad05ce): INSERT INTO TABLE customer_data VALUES
+(1, 'Alice', 'Delhi', 1200.50),
+(2, 'Bob', 'Mumbai', 850.75),
+(3, 'Charlie', 'Bangalore', 950.00),
+(4, 'David', 'Delhi', 1100.25),
+(5, 'Eve', 'Chennai', 600.00),
+(6, 'Frank', 'Mumbai', 750.50),
+(7, 'Grace', 'Bangalore', 1300.00),
+(8, 'Hannah', 'Delhi', 980.00),
+(9, 'Ivy', 'Chennai', 1250.00),
+(10, 'Jack', 'Mumbai', 700.00)
+WARN  : Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. tez) or using Hive 1.X releases.
+INFO  : Query ID = hadoop_20251028153303_b08e00c8-1f8b-409b-a188-a5fba7ad05ce
+INFO  : Total jobs = 3
+INFO  : Launching Job 1 out of 3
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_local1112298524_0004
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://localhost:8080/
+INFO  : Job running in-process (local Hadoop)
+INFO  : 2025-10-28 15:33:04,934 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 0.62 sec
+INFO  : MapReduce Total cumulative CPU time: 620 msec
+INFO  : Ended Job = job_local1112298524_0004
+INFO  : Starting task [Stage-7:CONDITIONAL] in serial mode
+INFO  : Stage-4 is selected by condition resolver.
+INFO  : Stage-3 is filtered out by condition resolver.
+INFO  : Stage-5 is filtered out by condition resolver.
+INFO  : Starting task [Stage-4:MOVE] in serial mode
+INFO  : Moving data to directory hdfs://localhost:9000/user/hive/warehouse/customer_data/.hive-staging_hive_2025-10-28_15-33-03_657_5196121148644768030-1/-ext-10000 from hdfs://localhost:9000/user/hive/warehouse/customer_data/.hive-staging_hive_2025-10-28_15-33-03_657_5196121148644768030-1/-ext-10002
+INFO  : Starting task [Stage-0:MOVE] in serial mode
+INFO  : Loading data to table default.customer_data from hdfs://localhost:9000/user/hive/warehouse/customer_data/.hive-staging_hive_2025-10-28_15-33-03_657_5196121148644768030-1/-ext-10000
+INFO  : Starting task [Stage-2:STATS] in serial mode
+INFO  : Executing stats task
+INFO  : Table default.customer_data stats: [numFiles=1, numRows=10, totalSize=218, rawDataSize=208, numFilesErasureCoded=0]
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1:  Cumulative CPU: 0.62 sec   HDFS Read: 608 HDFS Write: 1200 HDFS EC Read: 0 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 620 msec
+INFO  : Completed executing command(queryId=hadoop_20251028153303_b08e00c8-1f8b-409b-a188-a5fba7ad05ce); Time taken: 1.303 seconds
+10 rows affected (1.398 seconds)
+0: jdbc:hive2://localhost:10000> SELECT
+. . . . . . . . . . . . . . . .>     city,
+. . . . . . . . . . . . . . . .>     SUM(purchase_amount) AS total_city_purchase
+. . . . . . . . . . . . . . . .> FROM
+. . . . . . . . . . . . . . . .>     customer_data
+. . . . . . . . . . . . . . . .> GROUP BY
+. . . . . . . . . . . . . . . .>     city
+. . . . . . . . . . . . . . . .> ORDER BY
+. . . . . . . . . . . . . . . .>     total_city_purchase DESC;
+INFO  : Compiling command(queryId=hadoop_20251028153312_3fb42810-566b-4c44-b0b1-15decf013cc0): SELECT
+city,
+SUM(purchase_amount) AS total_city_purchase
+FROM
+customer_data
+GROUP BY
+city
+ORDER BY
+total_city_purchase DESC
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:[FieldSchema(name:city, type:string, comment:null), FieldSchema(name:total_city_purchase, type:double, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hadoop_20251028153312_3fb42810-566b-4c44-b0b1-15decf013cc0); Time taken: 0.081 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hadoop_20251028153312_3fb42810-566b-4c44-b0b1-15decf013cc0): SELECT
+city,
+SUM(purchase_amount) AS total_city_purchase
+FROM
+customer_data
+GROUP BY
+city
+ORDER BY
+total_city_purchase DESC
+WARN  : Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. tez) or using Hive 1.X releases.
+INFO  : Query ID = hadoop_20251028153312_3fb42810-566b-4c44-b0b1-15decf013cc0
+INFO  : Total jobs = 2
+INFO  : Launching Job 1 out of 2
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_local432991356_0005
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://localhost:8080/
+INFO  : Job running in-process (local Hadoop)
+INFO  : 2025-10-28 15:33:13,602 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 0.56 sec
+INFO  : MapReduce Total cumulative CPU time: 560 msec
+INFO  : Ended Job = job_local432991356_0005
+INFO  : Launching Job 2 out of 2
+INFO  : Starting task [Stage-2:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_local2013113742_0006
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://localhost:8080/
+INFO  : Job running in-process (local Hadoop)
+INFO  : 2025-10-28 15:33:14,772 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 0.39 sec
+INFO  : MapReduce Total cumulative CPU time: 390 msec
+INFO  : Ended Job = job_local2013113742_0006
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1:  Cumulative CPU: 0.56 sec   HDFS Read: 1200 HDFS Write: 1200 HDFS EC Read: 0 SUCCESS
+INFO  : Stage-Stage-2:  Cumulative CPU: 0.39 sec   HDFS Read: 1200 HDFS Write: 1200 HDFS EC Read: 0 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 950 msec
+INFO  : Completed executing command(queryId=hadoop_20251028153312_3fb42810-566b-4c44-b0b1-15decf013cc0); Time taken: 2.343 seconds
++------------+----------------------+
+|    city    | total_city_purchase  |
++------------+----------------------+
+| Delhi      | 3280.75              |
+| Mumbai     | 2301.25              |
+| Bangalore  | 2250.0               |
+| Chennai    | 1850.0               |
++------------+----------------------+
+4 rows selected (2.443 seconds)
+0: jdbc:hive2://localhost:10000> select * from customer_data;
+INFO  : Compiling command(queryId=hadoop_20251028153405_a9643254-4743-4d3e-a9e4-488b4e94e6bb): select * from customer_data
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:[FieldSchema(name:customer_data.customer_id, type:int, comment:null), FieldSchema(name:customer_data.customer_name, type:string, comment:null), FieldSchema(name:customer_data.city, type:string, comment:null), FieldSchema(name:customer_data.purchase_amount, type:float, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hadoop_20251028153405_a9643254-4743-4d3e-a9e4-488b4e94e6bb); Time taken: 0.064 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hadoop_20251028153405_a9643254-4743-4d3e-a9e4-488b4e94e6bb): select * from customer_data
+INFO  : Completed executing command(queryId=hadoop_20251028153405_a9643254-4743-4d3e-a9e4-488b4e94e6bb); Time taken: 0.0 seconds
++----------------------------+------------------------------+---------------------+--------------------------------+
+| customer_data.customer_id  | customer_data.customer_name  | customer_data.city  | customer_data.purchase_amount  |
++----------------------------+------------------------------+---------------------+--------------------------------+
+| 1                          | Alice                        | Delhi               | 1200.5                         |
+| 2                          | Bob                          | Mumbai              | 850.75                         |
+| 3                          | Charlie                      | Bangalore           | 950.0                          |
+| 4                          | David                        | Delhi               | 1100.25                        |
+| 5                          | Eve                          | Chennai             | 600.0                          |
+| 6                          | Frank                        | Mumbai              | 750.5                          |
+| 7                          | Grace                        | Bangalore           | 1300.0                         |
+| 8                          | Hannah                       | Delhi               | 980.0                          |
+| 9                          | Ivy                          | Chennai             | 1250.0                         |
+| 10                         | Jack                         | Mumbai              | 700.0                          |
++----------------------------+------------------------------+---------------------+--------------------------------+
+10 rows selected (0.086 seconds)
+0: jdbc:hive2://localhost:10000> CREATE table sale_data(sales_id INT, sale_date STRING, product_id INT,amount FLOAT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE;
+INFO  : Compiling command(queryId=hadoop_20251028153446_8f33aefc-368f-48e2-8ce4-416d003345a8): CREATE table sale_data(sales_id INT, sale_date STRING, product_id INT,amount FLOAT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hadoop_20251028153446_8f33aefc-368f-48e2-8ce4-416d003345a8); Time taken: 0.004 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hadoop_20251028153446_8f33aefc-368f-48e2-8ce4-416d003345a8): CREATE table sale_data(sales_id INT, sale_date STRING, product_id INT,amount FLOAT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hadoop_20251028153446_8f33aefc-368f-48e2-8ce4-416d003345a8); Time taken: 0.035 seconds
+No rows affected (0.048 seconds)
+0: jdbc:hive2://localhost:10000> 
