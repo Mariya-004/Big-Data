@@ -1,0 +1,182 @@
+0: jdbc:hive2://localhost:10000> CREATE table sale_data(sales_id INT, sale_date STRING, product_id INT,amount FLOAT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE;
+INFO  : Compiling command(queryId=hadoop_20251028152238_89b91a3a-a22c-4497-8780-225f696e7c0c): CREATE table sale_data(sales_id INT, sale_date STRING, product_id INT,amount FLOAT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hadoop_20251028152238_89b91a3a-a22c-4497-8780-225f696e7c0c); Time taken: 0.005 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hadoop_20251028152238_89b91a3a-a22c-4497-8780-225f696e7c0c): CREATE table sale_data(sales_id INT, sale_date STRING, product_id INT,amount FLOAT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hadoop_20251028152238_89b91a3a-a22c-4497-8780-225f696e7c0c); Time taken: 0.136 seconds
+No rows affected (0.152 seconds)
+0: jdbc:hive2://localhost:10000> INSERT INTO TABLE Closing: 0: jdbc:hive2://localhost:10000
+hadoop@krishna-Standard-PC-Q35-ICH9-2009:~/apache-hive-4.0.1-bin$ bin/beeline -n hadoop -u jdbc:hive2://localhost:10000
+Connecting to jdbc:hive2://localhost:10000
+Connected to: Apache Hive (version 4.0.1)
+Driver: Hive JDBC (version 4.0.1)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+Beeline version 4.0.1 by Apache Hive
+0: jdbc:hive2://localhost:10000> USE mydb;
+INFO  : Compiling command(queryId=hadoop_20251028152843_ef34b7bb-2d2d-4cdf-9895-51e10521b8a0): USE mydb
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hadoop_20251028152843_ef34b7bb-2d2d-4cdf-9895-51e10521b8a0); Time taken: 0.007 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hadoop_20251028152843_ef34b7bb-2d2d-4cdf-9895-51e10521b8a0): USE mydb
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hadoop_20251028152843_ef34b7bb-2d2d-4cdf-9895-51e10521b8a0); Time taken: 0.006 seconds
+No rows affected (0.04 seconds)
+0: jdbc:hive2://localhost:10000> INSERT INTO TABLE sale_data VALUES
+. . . . . . . . . . . . . . . .> (1, '2025-10-01', 101, 500.0),
+. . . . . . . . . . . . . . . .> (2, '2025-10-01', 102, 700.0),
+. . . . . . . . . . . . . . . .> (3, '2025-10-02', 101, 300.0),
+. . . . . . . . . . . . . . . .> (4, '2025-10-02', 103, 900.0),
+. . . . . . . . . . . . . . . .> (5, '2025-10-03', 104, 1200.0),
+. . . . . . . . . . . . . . . .> (6, '2025-10-03', 101, 400.0),
+. . . . . . . . . . . . . . . .> (7, '2025-10-04', 102, 600.0),
+. . . . . . . . . . . . . . . .> (8, '2025-10-04', 103, 800.0),
+. . . . . . . . . . . . . . . .> (9, '2025-10-05', 104, 1500.0),
+. . . . . . . . . . . . . . . .> (10, '2025-10-05', 101, 350.0);
+INFO  : Compiling command(queryId=hadoop_20251028152852_2076d63a-c7c7-42f8-9351-b06b7933c769): INSERT INTO TABLE sale_data VALUES
+(1, '2025-10-01', 101, 500.0),
+(2, '2025-10-01', 102, 700.0),
+(3, '2025-10-02', 101, 300.0),
+(4, '2025-10-02', 103, 900.0),
+(5, '2025-10-03', 104, 1200.0),
+(6, '2025-10-03', 101, 400.0),
+(7, '2025-10-04', 102, 600.0),
+(8, '2025-10-04', 103, 800.0),
+(9, '2025-10-05', 104, 1500.0),
+(10, '2025-10-05', 101, 350.0)
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:[FieldSchema(name:_col0, type:int, comment:null), FieldSchema(name:_col1, type:string, comment:null), FieldSchema(name:_col2, type:int, comment:null), FieldSchema(name:_col3, type:float, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hadoop_20251028152852_2076d63a-c7c7-42f8-9351-b06b7933c769); Time taken: 1.019 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hadoop_20251028152852_2076d63a-c7c7-42f8-9351-b06b7933c769): INSERT INTO TABLE sale_data VALUES
+(1, '2025-10-01', 101, 500.0),
+(2, '2025-10-01', 102, 700.0),
+(3, '2025-10-02', 101, 300.0),
+(4, '2025-10-02', 103, 900.0),
+(5, '2025-10-03', 104, 1200.0),
+(6, '2025-10-03', 101, 400.0),
+(7, '2025-10-04', 102, 600.0),
+(8, '2025-10-04', 103, 800.0),
+(9, '2025-10-05', 104, 1500.0),
+(10, '2025-10-05', 101, 350.0)
+WARN  : Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. tez) or using Hive 1.X releases.
+INFO  : Query ID = hadoop_20251028152852_2076d63a-c7c7-42f8-9351-b06b7933c769
+INFO  : Total jobs = 3
+INFO  : Launching Job 1 out of 3
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_local1405284846_0001
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://localhost:8080/
+INFO  : Job running in-process (local Hadoop)
+INFO  : 2025-10-28 15:28:54,643 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 1.92 sec
+INFO  : MapReduce Total cumulative CPU time: 1 seconds 920 msec
+INFO  : Ended Job = job_local1405284846_0001
+INFO  : Starting task [Stage-7:CONDITIONAL] in serial mode
+INFO  : Stage-4 is selected by condition resolver.
+INFO  : Stage-3 is filtered out by condition resolver.
+INFO  : Stage-5 is filtered out by condition resolver.
+INFO  : Starting task [Stage-4:MOVE] in serial mode
+INFO  : Moving data to directory hdfs://localhost:9000/user/hive/warehouse/mydb.db/sale_data/.hive-staging_hive_2025-10-28_15-28-52_097_859904320807929454-2/-ext-10000 from hdfs://localhost:9000/user/hive/warehouse/mydb.db/sale_data/.hive-staging_hive_2025-10-28_15-28-52_097_859904320807929454-2/-ext-10002
+INFO  : Starting task [Stage-0:MOVE] in serial mode
+INFO  : Loading data to table mydb.sale_data from hdfs://localhost:9000/user/hive/warehouse/mydb.db/sale_data/.hive-staging_hive_2025-10-28_15-28-52_097_859904320807929454-2/-ext-10000
+INFO  : Starting task [Stage-2:STATS] in serial mode
+INFO  : Executing stats task
+INFO  : Table mydb.sale_data stats: [numFiles=1, numRows=10, totalSize=233, rawDataSize=223, numFilesErasureCoded=0]
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1:  Cumulative CPU: 1.92 sec   HDFS Read: 0 HDFS Write: 608 HDFS EC Read: 0 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 1 seconds 920 msec
+INFO  : Completed executing command(queryId=hadoop_20251028152852_2076d63a-c7c7-42f8-9351-b06b7933c769); Time taken: 1.761 seconds
+10 rows affected (2.792 seconds)
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> SELECT
+. . . . . . . . . . . . . . . .>     product_id,
+. . . . . . . . . . . . . . . .>     SUM(amount) AS total_sales
+. . . . . . . . . . . . . . . .> FROM
+. . . . . . . . . . . . . . . .>     sale_data
+. . . . . . . . . . . . . . . .> GROUP BY
+. . . . . . . . . . . . . . . .>     product_id
+. . . . . . . . . . . . . . . .> ORDER BY
+. . . . . . . . . . . . . . . .>     total_sales DESC;
+INFO  : Compiling command(queryId=hadoop_20251028152904_c332e29c-f45f-4c45-8566-c4f941cc3878): SELECT
+product_id,
+SUM(amount) AS total_sales
+FROM
+sale_data
+GROUP BY
+product_id
+ORDER BY
+total_sales DESC
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:[FieldSchema(name:product_id, type:int, comment:null), FieldSchema(name:total_sales, type:double, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hadoop_20251028152904_c332e29c-f45f-4c45-8566-c4f941cc3878); Time taken: 0.14 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hadoop_20251028152904_c332e29c-f45f-4c45-8566-c4f941cc3878): SELECT
+product_id,
+SUM(amount) AS total_sales
+FROM
+sale_data
+GROUP BY
+product_id
+ORDER BY
+total_sales DESC
+WARN  : Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. tez) or using Hive 1.X releases.
+INFO  : Query ID = hadoop_20251028152904_c332e29c-f45f-4c45-8566-c4f941cc3878
+INFO  : Total jobs = 2
+INFO  : Launching Job 1 out of 2
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_local886038459_0002
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://localhost:8080/
+INFO  : Job running in-process (local Hadoop)
+INFO  : 2025-10-28 15:29:05,610 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 0.55 sec
+INFO  : MapReduce Total cumulative CPU time: 550 msec
+INFO  : Ended Job = job_local886038459_0002
+INFO  : Launching Job 2 out of 2
+INFO  : Starting task [Stage-2:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_local1761567787_0003
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://localhost:8080/
+INFO  : Job running in-process (local Hadoop)
+INFO  : 2025-10-28 15:29:06,790 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 0.44 sec
+INFO  : MapReduce Total cumulative CPU time: 440 msec
+INFO  : Ended Job = job_local1761567787_0003
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1:  Cumulative CPU: 0.55 sec   HDFS Read: 608 HDFS Write: 608 HDFS EC Read: 0 SUCCESS
+INFO  : Stage-Stage-2:  Cumulative CPU: 0.44 sec   HDFS Read: 608 HDFS Write: 608 HDFS EC Read: 0 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 990 msec
+INFO  : Completed executing command(queryId=hadoop_20251028152904_c332e29c-f45f-4c45-8566-c4f941cc3878); Time taken: 2.422 seconds
++-------------+--------------+
+| product_id  | total_sales  |
++-------------+--------------+
+| 104         | 2700.0       |
+| 103         | 1700.0       |
+| 101         | 1550.0       |
+| 102         | 1300.0       |
++-------------+--------------+
